@@ -133,7 +133,7 @@ gulp.task('scripts', () =>
 gulp.task('inject:head', () =>
   gulp.src('src/_includes/head.html')
     .pipe($.inject(gulp.src('.tmp/assets/stylesheets/*.css',
-                            {read: false}), {ignorePath: '.tmp'}))
+                          {read: false}), {addPrefix: '{{ site.baseurl }}', ignorePath: '.tmp', addRootSlash:false}))
     .pipe(gulp.dest('src/_includes'))
 );
 
@@ -141,7 +141,7 @@ gulp.task('inject:head', () =>
 gulp.task('inject:footer', () =>
   gulp.src('src/_layouts/default.html')
     .pipe($.inject(gulp.src('.tmp/assets/javascript/*.js',
-                            {read: false}), {ignorePath: '.tmp'}))
+                          {read: false}), {addPrefix: '{{ site.baseurl }}', ignorePath: '.tmp', addRootSlash:false}))
     .pipe(gulp.dest('src/_layouts'))
 );
 
