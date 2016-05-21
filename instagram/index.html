@@ -6,9 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>404: Page not found</title>
+  <title>festiwall</title>
   <meta name="description" content="festiwall">
-  <link rel="canonical" href="http://sergimiral.github.io/404/">
+  <link rel="canonical" href="http://sergimiral.github.io/instagram/">
 
   <!-- CSS -->
   <!-- inject:css -->
@@ -27,20 +27,20 @@
 
   <!-- SEO -->
   <!-- Begin Jekyll SEO tag v1.4.0 -->
-<title>404: Page not found - festiwall</title>
-<meta property="og:title" content="404: Page not found" />
+<title>festiwall - festiwall</title>
+<meta property="og:title" content="festiwall" />
 <meta name="description" content="festiwall" />
 <meta property="og:description" content="festiwall" />
-<link rel="canonical" href="http://sergimiral.github.io/404/" />
-<meta property="og:url" content="http://sergimiral.github.io/404/" />
+<link rel="canonical" href="http://sergimiral.github.io/instagram/" />
+<meta property="og:url" content="http://sergimiral.github.io/instagram/" />
 <meta property="og:site_name" content="festiwall" />
 <script type="application/ld+json">
   {
     "@context": "http://schema.org",
     "@type": "WebPage",
-    "headline": "404: Page not found",
+    "headline": "festiwall",
     "description": "festiwall",
-    "url": "http://sergimiral.github.io/404/"
+    "url": "http://sergimiral.github.io/instagram/"
   }
 </script>
 <!-- End Jekyll SEO tag -->
@@ -100,11 +100,58 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <div class="page">
-  <h1 class="page-title">404: Page not found</h1>
-  <p class="lead">Sorry, we've misplaced that URL or it's pointing to something
-  that doesn't exist. <a href="/">Head back home</a> to try finding it
-  again.</p>
+        <div class="instagram">
+
+<h1>This is the instagram pulled gallery page</h1>
+
+<div id="instafeed"></div>
+<script src="https://cdn.lukej.me/instafeed.js/1.4.1/instafeed.min.js" charset="utf-8"></script>
+<!-- <script type="text/javascript">
+    var feed = new Instafeed({
+        get: 'user',
+        userId: 2077414878,
+        clientId: '0ce33c3b62064f6e80a03c325ba002b2',
+        accessToken: '2050575330.0ce33c3.97b6833818564d2cb0c89a30a2633b08',
+        limit: 4,
+    });
+    feed.run();
+</script> -->
+<script>
+
+var feedOnGallery = new Instafeed({
+  get: 'user',
+  userId: 2077414878,
+  clientId: '0ce33c3b62064f6e80a03c325ba002b2',
+  accessToken: '2050575330.0ce33c3.97b6833818564d2cb0c89a30a2633b08',
+  limit: 12,
+  sortBy: 'most-recent',
+  template: '<a href="{{link}}"><img src="{{image}}" /></a>',
+  resolution: 'low_resolution',
+  target: 'instafeed',
+  after: function () {
+
+  }
+});
+
+feedOnGallery.run();
+
+$(window).on('scroll', function () {
+  var windowScrollTop = $(window).scrollTop();
+  var instafeedContainer = $("#instafeed");
+  var instafeedContainerInnerHeight = instafeedContainer.innerHeight();
+  var thresholdValue = 520;
+
+  if (instafeedContainerInnerHeight - windowScrollTop <= thresholdValue) {
+      if (feedOnGallery.hasNext()) {
+          feedOnGallery.next();
+      }
+  }
+});
+
+</script>
+
+
+
 </div>
 
       </div>
